@@ -4,3 +4,4 @@ RUN apk update
 RUN apk add vim
 RUN apk add curl
 
+CMD ["/bin/sh", "-c", "curl --version"]
