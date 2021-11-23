@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: untitled-policy
+  namespace: test
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx
+  ingress:
+    - from:
+        - namespaceSelector: {}
+          podSelector:
+            matchLabels:
+              app: nginx
+
