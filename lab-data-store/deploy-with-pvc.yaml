@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: test-pv-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-pv-pod
+  template:
+    metadata:
+      labels:
+        app: test-pv-pod
+    spec:
+      volumes:
+        - name: task-pv-storage
+          persistentVolumeClaim:
+            claimName: test-pv-claim
+      containers:
+        - name: task-pv-container
+          image: nginx
+          args:
+          - /bin/sh
+          - -c
+          - >
+            while true;
+            do
+              echo "$(date)" >> /usr/share/nginx/html/test.log;
+              sleep 3;
+            done
+          ports:
+            - containerPort: 80
+              name: "http-server"
+          volumeMounts:
+            - mountPath: "/usr/share/nginx/html"
+              name: task-pv-storage
+
+
