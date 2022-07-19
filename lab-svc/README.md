@@ -29,5 +29,6 @@ kubectl get svc -n ingress-nginx
 ```
 ```
 curl -v http://training-worker1/ -H 'Host: foo.bar.com'
+curl -v http://training-master/ -H 'Host: foo.bar.com'
 ```
 draws clients > ingress-controller > svc > pod
