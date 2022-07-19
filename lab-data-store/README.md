@@ -34,3 +34,17 @@ kubectl logs counter
 kubectl logs counter count
 kubectl logs counter count-log-1
 kubectl logs counter count-log-2
+```
+# pv/pvc
+
+maybe change file name
+```
+vim pod-with-pvc.yaml
+vim pvc.yaml
+vim pv.yaml
+
+
+```
+```
+kubectl apply -f pod-with-pvc.yaml -f pvc.yaml -f pv.yaml
+```
