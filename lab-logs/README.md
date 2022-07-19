@@ -9,6 +9,10 @@ kubectl run nginx --image nginx --dry-run=client -oyaml
 ```
 kubectl run nginx --image nginx --dry-run=client -oyaml > test-pod.yaml
 ```
+(optional)
+```
+kubectl run nginx --image busybox --dry-run=client -oyaml -- sleep infinity > test-pod.yaml
+```
 
 ```
 vim test-pod.yaml
