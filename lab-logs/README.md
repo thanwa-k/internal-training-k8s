@@ -21,6 +21,12 @@ vim test-pod.yaml
 ```
 kubectl create deployment nginx --image nginx
 ```
+```
+kubectl get po
+```
+```
+kubectl get deploy
+```
 **Delete pod and explain replicas. How pod is schduled**
 ```
 kubectl create deployment nginx --image nginx --dry-run=client -oyaml > test-deployment.yaml
