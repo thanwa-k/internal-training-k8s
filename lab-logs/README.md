@@ -48,6 +48,21 @@ kubectl api-resources
 explain what is on yaml
 what logs it writes
 ```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: command-demo
+  labels:
+    purpose: demonstrate-command
+spec:
+  containers:
+  - name: command-demo-container
+    image: nginx 
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo hello <name>; sleep 10;done"]
+    imagePullPolicy: Never
+```
+```
 kubectl apply -f pod-for-logs.yaml
 ```
 
